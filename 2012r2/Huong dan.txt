@@ -1,0 +1,8 @@
+- Chỉ sử dụng 1 trong 2 cách:
+
+1. Cách 1
+- Attach Database bằng file MDF và LDF
+
+2. Cách 2
+- Tạo Database tên account_tong trên SQL Management 
+- Restore vào Database dùng account_tong.bak
