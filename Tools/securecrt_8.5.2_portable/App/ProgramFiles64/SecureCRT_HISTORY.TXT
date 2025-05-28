@@ -1,0 +1,358 @@
+
+          SecureCRT(R) 8.5.2 (Official) -- November 15, 2018
+
+            Copyright (C) 1995-2018 VanDyke Software, Inc.
+                        All rights reserved.
+
+
+This file contains the SecureCRT product history.  It includes lists 
+of new features, changes, and bug fixes sorted by release.  For a 
+product description, installation notes, registration information,
+and contact information, please refer to SecureCRT_README.txt
+(downloaded with this installation).
+
+
+Changes in SecureCRT 8.5.2 (Official) -- November 15, 2018
+----------------------------------------------------------
+
+New feature:
+
+  - Added support for the curve25519-sha256 key-exchange algorithm.
+
+Bug fixes:
+
+  - If an OpenSSH format key was manually added to the host key
+    database, SecureCRT crashed when attempting to connect to a host
+    that used that key.
+  - If the Session Manager was pinned and the active session had keyword
+    highlighting on and it was toggled off by selecting "Keyword
+    Highlighting" from the Options menu and then the Session Manager was
+    hidden, keyword highlighting was re-enabled.
+  - Windows: In the Command Window, if the option "Send Characters
+    Immediately" was set, pressing CTRL+A selected all the text in the
+    Command Window instead of sending the CTRL+A to the session(s).
+  - Windows: When using the mouse wheel to scroll session output, there
+    was a dead spot in the terminal area where scrolling stopped if the
+    mouse cursor was positioned there.
+  - Windows: Attempting to display the Activator's About box caused an
+    error message to be displayed.
+  - Mac/Linux: If the Session Manager was undocked and redocked, the
+    terminal area size changed.
+  - Mac: SecureCRT could crash if a session had a dependent session and
+    the wrong password had been saved for both sessions and the wrong
+    password was entered when attempting to connect to the session.
+  - Mac: If CTRL+<down arrow> was used to select multiple folders in the
+    Session Manager or Connect dialog and then arrow keys were pressed,
+    the selection could not be cleared.
+  - Linux: On Ubuntu 18.x, when running Midnight Commander, if CTRL+O
+    was used to show and hide panels until there was no command prompt
+    and then Midnight Commander was restarted as root and CTRL+O was 
+    used to hide panels, the command prompt was at the top of the window
+    and new output was displayed incorrectly.
+
+
+Changes in SecureCRT 8.5.1 (Official) -- September 27, 2018
+-----------------------------------------------------------
+
+New feature:
+
+  - Added a new script function FileSaveDialog() that allows saving to
+    a file that does not exist.
+
+Bug fixes:
+
+  - If the command line specified a saved session (/S) and overrode the
+    local listening IP address (/LOCAL), an error was reported and the
+    session did not connect.
+  - The button bar list was empty if button bars were imported when the
+    button bar list was not displayed and then the button bar was
+    displayed.
+  - Windows: On Windows Server 2008 R2, the icons in the Session Manager
+    and Connect dialog were not drawn correctly.
+  - Windows: On a high-DPI monitor scaled to 125%, the 10-point Lucida
+    Console font looked larger and bold compared to how that font looked
+    in other applications.
+  - Mac: After successfully updating using "Update Now" once, SecureCRT
+    could not be updated again using "Update Now".
+  - Mac: The dialog for customizing the toolbar was displayed over the
+    toolbar so that items could not be dragged into the toolbar.
+
+Change:
+
+  - Mac: Dark Mode is disabled due to incompatibilities with MacOS 10.14
+    (Mojave).
+
+
+Changes in SecureCRT 8.5 (Official) -- August 28, 2018
+------------------------------------------------------
+
+Bug fix:
+
+  - SecureCRT could crash if a new folder was created in the Session
+    Manager or Connect dialog and there was at least one other folder
+    under "Sessions" and then sorting was changed to manual arrangement
+    and a session was dragged to be between the "Session" folder and the
+    top folder.
+
+
+Changes in SecureCRT 8.5 (Beta 5) -- August 16, 2018
+----------------------------------------------------
+
+Bug fixes:
+
+  - Mac: When SecureCRT and SecureFX were integrated, if both
+    SecureCRT and SecureFX were running and connected to a session and
+    then SecureCRT was launched from SecureFX, the current session was
+    opened in a tab in the SecureCRT window and in a new SecureCRT
+    window.
+  - Mac: SecureCRT could, under rare circumstances, crash when
+    "Page Setup" was selected from the File menu.
+
+
+Changes in SecureCRT 8.5 (Beta 4) -- August 9, 2018
+---------------------------------------------------
+
+Bug fixes:
+
+  - Scripts specified in custom keymaps and mapped keys were not
+    included when settings were exported and imported.
+  - The Beta expiration notice was displayed more frequently than it
+    should have been when SecureCRT was not closed and other instances
+    of SecureCRT were started/opened/launched.
+  - Windows: On Windows 10, SecureCRT sometimes crashed when an SFTP
+    tab was opened from a session that logged to a mapped network
+    drive and the drive was not available.
+  - Windows: If the session option "Disable resize" was on, the
+    application window could be resized when the display theme was set
+    to VS2013 Blue, VS2013 Black, or Office 2013.
+  - Mac: If settings were exported to a network share (SMB), the XML
+    file was blank.
+  - Mac: If a session was imported from another platform and the
+    session's font did not exist on MacOS, the terminal text was not
+    displayed correctly.
+  - Mac: When a session was configured to use GSSAPI authentication,
+    if GSSAPI authentication failed, a warning dialog to this effect
+    was still displayed when "Do not show this message again" was
+    checked.
+  - Mac: When the Confirm Multi-Line Paste dialog was displayed, focus
+    was in the edit box instead of on the Paste button.
+
+
+Changes in SecureCRT 8.5 (Beta 3) -- July 19, 2018
+--------------------------------------------------
+
+Bug fix:
+
+  - Windows: Custom menu toolbar icons were displayed incorrectly
+    when the system text was scaled to 125%.
+
+
+Changes in SecureCRT 8.5 (Beta 2) -- July 10, 2018
+--------------------------------------------------
+
+Bug fixes:
+
+  - If three or more sessions were opened in three separate tab groups
+    and the middle tab group was made wider, the tab widths were not
+    adjusted correctly.  Similarly, if the application window was made
+    wider, the tabs widths in the right tab group were not adjusted
+    correctly.
+  - Windows: SSH2 sessions failed to connect if the username contained
+    international characters (e.g., Cyrillic) and the local system's
+    code page was not the same as the remote system's code page.
+  - Windows: If session tabs were not shown, when multiple instances of
+    SecureCRT were opened, each subsequent instance of SecureCRT was
+    slightly shorter.
+
+
+Changes in SecureCRT 8.5 (Beta 1) -- June 28, 2018
+--------------------------------------------------
+
+New features:
+
+  - Added a Button Bar Manager, which allows button bars to be added,
+    duplicated, edited, deleted, and arranged manually or
+    alphabetically.
+  - Added a Button Manager, which allows buttons on a button bar to be
+    rearranged, edited, added, deleted, copied, and pasted.
+  - Added the ability to rename button bars.
+  - Button bars can be duplicated from the button bar context menu
+    and in the Button Bar Manager.
+  - Added the ability to map a button or key to a button bar, making
+    it easier to switch between different button bars.
+  - The text in the multi-line paste confirmation dialog can be
+    edited before it gets pasted into a session.
+  - The multi-line paste confirmation dialog can be resized.
+  - Added the ability to save sessions that were created using Quick
+    Connect, the Connect bar, or the command line.
+  - Added a new Script status indicator so that tabbed and tiled
+    sessions can indicate that a script is running.
+  - Added a global option to disable all printing.
+  - Added a global option that allows the Command window to be
+    configured to send commands to all sessions, visible sessions,
+    or the active session by default.
+  - Added the ability to make the width of session tabs a fixed number
+    of pixels.
+  - Added support for the SHA2-512-EtM and SHA2-256-EtM MACs.
+  - ssh-add can be used to add keys from a remote Linux, Unix, or Mac
+    system to SecureCRT's agent using agent forwarding.
+  - Added the ability to specify the quote character(s) to be used
+    for the "Paste as Quotation" operation.
+  - Added a global option to prevent numbers from being appended to
+    tabbed or tiled session names when the same session is connected
+    more than once.
+  - Added "Reset Name" to the tab/tile context menu, which resets
+    the tabbed or tiled session name back to the session's name or
+    title specified in the Session Options dialog.
+  - Added the ability to toggle keyword highlighting from the Options
+    menu.
+  - When a session is copied in the Session Manager or Connect dialog,
+    the session's hostname is put in the clipboard so that it can be
+    pasted into a session or other applications.  The session can 
+    still be pasted into the Session Manager or Connect dialog.
+  - Added a global option to disable ALT+<number> tab switching.
+  - Added a global option for triple clicking to include the EOL
+    character in the selection.
+  - Sorting on columns is supported in all list controls that have
+    columns.
+  - Added a session INI-file-only option "Keyboard Interactive
+    Prompt" that allows the expected prompt for keyboard-interactive
+    authentication to be specified.
+  - Added a command-line flag /KEYBOARDINTERACTIVEPROMPT that allows
+    the keyboard interactive prompt to be specified for SSH2
+    sessions.
+  - Added a global INI-file-only option "TFTP Resend Timeout" that
+    allows the resend timeout for the TFTP server to be configured.
+  - Mac: Added a global option to automatically set locale
+    environment variables for the local shell.  This option is on
+    by default.
+
+Changes:
+
+  - Because of an update to a cryptographic library used by SecureCRT,
+    newly generated DSA keys are now restricted to 1024 bits.
+  - In the Public Key Properties dialog, the "Use identity or
+    certificate file" field can be left blank.
+  - The Full Reset and Soft Terminal Reset escape sequences are now
+    honored with Linux, VShell, VT220, VT320, and Xterm emulations.
+  - The DECSUSR escape sequences to change the cursor style are now
+    honored in Xterm emulation.
+  - Preceding and trailing whitespace is removed from hosts entered
+    in the Connect bar.
+  - Made it easier to specify xterm-256color emulation in the
+    Session Options dialog.
+  - Added base color support for TN3270 emulation.
+  - If the global option to paste on press of middle mouse button is
+    set, the middle mouse button can be used to paste into the Command
+    window.
+  - An optional confirmation dialog is displayed on the "Paste as
+    Quotation" operation.
+  - If the session option "Forward X11 packets" is set and no X
+    server is running on the local machine, a warning dialog is no
+    longer displayed.
+  - If the session options "Automate logon" and "Send initial
+    carriage return" are set and no Send strings are specified, the
+    initial carriage return is sent when the session connects.
+  - The session option "Disable initial SFTP extensions" can now be
+    configured in the GUI.
+  - The local and remote port forwarding fields in the Session Options
+    dialog have been made taller so that more configured port forwards
+    are visible.
+  - Added the ability to specify the terminal type on the command
+    line using the flag /TERMINAL_TYPE.
+  - When the options /COLOR_SCHEME and /T are used on the command
+    line, the color scheme is only applied to the session specified
+    by /T.
+  - SSH1/SSH2: If the option "Do not request a shell" is set, a
+    message to that effect is displayed in the session.
+  - Windows: For the VS2013 Dark theme, the active tab's color was
+    lightened so that it would stand out more.
+  - Windows: The close button for the "Native" display theme is now a
+    plain "X".
+  - Mac: The Expose (Command+Shift+\) behavior has been disabled.
+  - Mac: The Command window can now be resized to be as small as one
+    line tall.
+  - Linux: Printing is disabled by default because on Ubuntu 17 and
+    Fedora 27, SecureCRT could have performance problems caused by
+    printer initialization.  Printing can be re-enabled in the Global
+    Options dialog.
+  - Linux: The keyboard shortcut ALT+N brings up the Session Manager
+    or Connect dialog.
+
+Bug fixes:
+
+  - If two instances of SecureCRT were running and the Global
+    Options dialog was displayed in one instance and the Session
+    Options dialog was displayed in the other, if changes were made
+    in the Global Options dialog and saved, SecureCRT crashed when
+    attempting to select a different category in the Session Options
+    dialog.
+  - In the Session Manager or Connect dialog, if a folder was renamed
+    to have a name that was too long for the local system, the sessions
+    contained in the folder were deleted.
+  - SecureCRT hung when running a Python script that called
+    crt.Screen.Send("\000).
+  - SecureCRT failed to authenticate with remote systems, such as
+    the Balabit PPM SSH proxy server, that requested the same 
+    authentication method more than once during authentication.
+  - If SecureFX was also installed and the terminal protocol in the
+    default session was set to None, SecureCRT could not be launched.
+  - When the script recorder was used to generate a Python script,
+    escape characters [chr(92)] were not included in the script.
+  - When exporting settings, scripts that were used by buttons were
+    not exported.
+  - If keyword highlighting was turned on through a script, the
+    terminal window was not updated to highlight the keywords.
+  - The multi-line paste dialog did not display the text correctly
+    if the session was using the vt100 font and the configuration
+    data was from a version of SecureCRT between 6.0 and 6.2.
+  - Characters in the upper range of Unicode code points, such as
+    emojis and certain Asian characters were rendered incorrectly or
+    as unknown characters in the terminal area.
+  - Some double-wide Unicode characters could not be used in keyword
+    highlighting.
+  - If SecureCRT was maximized and the Session Manager was made
+    wider, when SecureCRT restarted, the Session Manager's size
+    change was lost.
+  - Windows: After SecureCRT had been running for a while, switching
+    tabs could become very slow.
+  - Windows: If the combined SecureCRT and SecureFX installer had
+    previously been installed and then a newer standalone version
+    of SecureCRT was installed, SecureCRT's menu bar was blank.
+  - Windows: On a 4K monitor, if a session's resize option was set
+    to "Synchronize view to size" and the view was zoomed several
+    times, the prompt could end up off the screen and/or lines
+    could be cut off.
+  - Windows: If the EOL character for the text in the clipboard was
+    not CRLF, line breaks were not displayed correctly in the
+    multi-line paste confirmation dialog.
+  - Windows: When the New Session wizard was used to create a Serial
+    session, an invalid baud rate could be specified.
+  - Windows: If the toolbar was customized to have a button for
+    starting and stopping the TFTP server and the TFTP server failed
+    to start, the button said "Stop TFTP Server."
+  - Windows: In the Windows 10 Creators Update, the Session Manager
+    and Connect dialog could be unresponsive for several seconds when
+    they were displayed.
+  - Windows: In the Windows 10 Creators Update, the Connect dialog
+    could take several seconds to draw the toolbar.
+  - Mac/Linux: In the Map Selected Key dialog, the "Run Script"
+    function was available when scripting was disabled in the
+    Global.ini file.
+  - Mac/Linux: SecureCRT reported an error when attempting to  log
+    to the same file simultaneously from different sessions.
+  - Mac/Linux: The list of hosts in the Global Options dialog in the
+    SSH Host Key category was not sorted.
+  - Mac/Linux: If a session name contained two ampersands, the Window
+    and File menus displayed the session name with three ampersands.
+  - Mac: Attempting to do a search from the Help menu resulted in an
+    error or a crash.
+  - Mac: SecureCRT could crash if it was minimized while the printer
+    was being initialized.
+  - Mac: If Option+e was entered, SecureCRT did not exit accent mode
+    if a hotkey was pressed.
+  - Linux: If the TFTP server was configured to start when SecureCRT
+    started and SecureCRT was closed and restarted, the error "The TFTP
+    server could not bind to port <port number> for the following
+    reason: Address already in use." was displayed when the IPv4 and
+    IPv6 socket were bound to the same port.

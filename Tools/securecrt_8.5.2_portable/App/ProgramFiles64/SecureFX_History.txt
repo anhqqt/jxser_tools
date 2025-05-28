@@ -1,0 +1,234 @@
+
+          SecureFX(R) 8.5.2 (Official) -- November 15, 2018
+
+            Copyright (C) 1995-2018 VanDyke Software, Inc.
+                       All rights reserved.
+
+
+This file contains the SecureFX product history.  It includes lists of
+new features, changes, and bug fixes sorted by release.  For a product
+description, installation notes, registration information, and contact
+information, please refer to SecureFX_README.txt (downloaded with this 
+installation).
+
+Changes in SecureFX 8.5.2 (Official) -- November 15, 2018
+---------------------------------------------------------
+
+New feature:
+
+  - Added support for the curve25519-sha256 key-exchange algorithm.
+
+Bug fix:
+
+  - If an OpenSSH format key was manually added to the host key
+    database, SecureFX crashed when attempting to connect to a host
+    that used that key.
+
+
+Changes in SecureFX 8.5.1 (Official) -- September 27, 2018
+----------------------------------------------------------
+
+Changes:
+
+  - The session channel window size was increased in order to use all
+    available bandwidth for SCP downloads.
+  - Mac: Dark Mode is disabled due to incompatibilities with MacOS 10.14
+    (Mojave).
+
+Bug fixes:
+
+  - Windows: On Windows Server 2008 R2, the icons in the Session Manager
+    and Connect dialog were not drawn correctly.
+  - Windows/Mac: Synchronize operations that deleted local files did not
+    honor the option "Move deleted files to the Recycle Bin/Trash".
+  - Mac: After successfully updating using "Update Now" once, SecureFX
+    could not be updated again using "Update Now".
+
+
+Changes in SecureFX 8.5 (Official) -- August 28, 2018
+-----------------------------------------------------
+
+Bug fixes:
+
+  - SecureFX crashed if an SCP session was closed immediately following
+    an initial "cd" exec request.
+  - SecureFX could crash if a new folder was created in the Session
+    Manager or Connect dialog and there was at least one other folder
+    under "Sessions" and then sorting was changed to manual arrangement
+    and a session was dragged to be between the "Session" folder and the
+    top folder.
+  - Mac: The log pane got taller each time the folder tree was hidden
+    and shown.
+
+
+Changes in SecureFX 8.5 (Beta 5) -- August 16, 2018
+---------------------------------------------------
+
+Bug fixes:
+
+  - If the global INI-file-only option "SecureFX Single Instance" was
+    off and SecureFX was configured to log to a file, if a second
+    instance of SecureFX was opened and the OK button was pressed on
+    the dialog to select another log file and the file browse dialog was
+    cancelled, SecureFX crashed.
+  - SecureFX crashed when a folder that contained thousands of files was
+    downloaded using SCP.
+  - SFXCL: When /NoPrompt was specified for a session that used
+    keyboard-interactive authentication and the session contained the
+    password or it was specified on the command line, authentication
+    failed.
+  - Mac: When SecureCRT and SecureFX were integrated, if both
+    SecureCRT and SecureFX were running and connected to a session and
+    then SecureCRT was launched from SecureFX, the current session was
+    opened in a tab in the SecureCRT window and in a new SecureCRT
+    window.
+  - Mac: SecureFX was unable to open a remote file if the "Open with"
+    application was in a folder path that had spaces.
+
+
+Changes in SecureFX 8.5 (Beta 4) -- August 9, 2018
+--------------------------------------------------
+
+Bug fixes:
+
+  - The file listing for a remote system could be very slow when the
+    folder contained many subfolders (over 10,000).
+  - Pressing ENTER on the ".." folder no longer went up one level.
+  - When the "pwd" command was issued to get the initial directory for
+    the remote system and an error was returned, SecureFX attempted to
+    use the error message as the path for the "cd" command.
+  - Directories were not listed in sessions connected to a BusyBox
+    device (Dropbear SSH) using SCP.
+  - When OneDrive was disabled, it was displayed as a file rather than
+    a folder.
+  - The Beta expiration notice was displayed more frequently than it
+    should have been when SecureFX was not closed and other instances
+    of SecureFX were started/opened/launched.
+  - Mac: When a session was configured to use GSSAPI authentication,
+    if GSSAPI authentication failed, a warning dialog to this effect
+    was still displayed when "Do not show this message again" was
+    checked.
+  - Mac/Linux: The ".." folder could be deleted using the Delete
+    keyboard accelerator.
+  - Mac/Linux: The keyboard shortcuts did not work in the Log pane.
+
+
+Changes in SecureFX 8.5 (Beta 3) -- July 19, 2018
+-------------------------------------------------
+
+Change:
+
+  - Pressing CTRL+B (or COMMAND+B on MacOS) in the tree view adds the
+    selected folder to the list of bookmarks.
+
+
+Changes in SecureFX 8.5 (Beta 2) -- July 10, 2018
+-------------------------------------------------
+
+No changes.
+
+
+Changes in SecureFX 8.5 (Beta 1) -- June 28, 2018
+-------------------------------------------------
+
+New features:
+
+  - The Manage Bookmarks dialog allows bookmarks to be edited, copied
+    from another session, added, and deleted.
+  - When "Open Bookmarks" is selected from the File menu or file view
+    context menu, all the bookmarks are shown.  If there a lot of
+    bookmarks, the list may have to be scrolled to see all of them. 
+  - Added a global INI-file-only option called "SecureFX Single
+    Instance", which is on by default.  If SecureFX is already running
+    and a new SecureFX session is launched from SecureCRT, from the
+    system desktop, or from the command line, the new session will open
+    in the existing SecureFX application window.
+  - Added support for the SHA2-512-EtM and SHA2-256-EtM MACs.
+  - Added a global option to make the default action "Transfer" when a
+    file is double-clicked or is selected and ENTER is pressed.
+  - Sorting on columns is supported in all list controls that have
+    columns.
+  - Added a session INI-file-only option "Keyboard Interactive
+    Prompt" that allows the expected prompt for keyboard-interactive
+    authentication to be specified.
+  - SFXCL: Added a /ReconnectCount flag to SFXCL that specifies the
+    number of times to try to reconnect after a disconnect occurs
+    during a transfer operation.
+  - SFXCL: Added a /Parsable option to the /List command, which forces
+    the list output to be displayed in MLSD/MLST format.
+  - SFXCL: Added command-line option /MaxParallel that allows the
+    maximum number of parallel transfers to be specified for transfer
+    operations.
+  - SFXCL: Added command-line option /TraceLevel that allows the
+    trace output verbosity to be specified for all file operations.
+
+Changes:
+
+  - Improved the responsiveness of the user interface when multiple
+    files are being transferred simultaneously.
+  - The default action for pressing ENTER or double-clicking a file is
+    transfer.  This setting can be changed in the Global Options dialog.
+  - In the Public Key Properties dialog, the "Use identity or
+    certificate file" field can be left blank.
+  - Because of an update to a cryptographic library used by SecureFX,
+    newly generated DSA keys are now restricted to 1024 bits.
+  - Preceding and trailing whitespace is removed from hosts entered
+    in the Connect bar.
+  - The Manage Bookmarks dialog is resizable.
+  - The keyboard shortcut ALT+N brings up the Session Manager or
+    Connect dialog.
+  - Migrated trace level option for sessions to a higher number
+    because most of the messages that were previously traced at
+    level 1 were moved to level 2.
+  - The session option "Disable initial SFTP extensions" can now be
+    configured in the GUI.
+  - Windows: Improved transfer speeds by more than 25% when thousands
+    of files are transferred in parallel using the transfer queue.
+  - Windows: For the VS2013 Dark theme, the active tab's color was
+    lightened and the highlight outline color for selected options on
+    the toolbar was changed to orange.
+  - Windows: The close button for the "Native" display theme is now a
+    plain "X".
+
+Bug fixes:
+
+  - SecureFX crashed after closing a remote session tab and then
+    entering text in the Session Manager's filter bar.
+  - SecureFX could become non-responsive after uploading thousands of
+    files listed individually using the transfer window instead of the
+    transfer queue. 
+  - In the Session Manager or Connect dialog, if a folder was renamed
+    to have a name that was too long for the local system, the sessions
+    contained in the folder were deleted.
+  - On case-sensitive file systems, synchronize operations could
+    incorrectly match or miss entries where the file or folder names
+    only differed by case.
+  - On case-sensitive file systems, the entry selected in the tree view
+    after a file operation could be incorrect if the operation involved
+    folders or files with names that only differed by case from other
+    folders or files.
+  - Remote edit would not upload files when changes were made without
+    exiting the editor.
+  - Files could not be uploaded to a folder that did not already exist
+    on a Titan server when SFTP version 6 was used.
+  - SFXCL: Usernames, passwords, and configuration passphrases
+    containing non-ANSI characters could not be entered at an
+    interactive prompt.
+  - SFXCL: If "/S:i" was specified on the command line, the remote
+    initial directory was ignored if the destination filename was
+    different from the source filename.
+  - Windows: If a file on the remote system had a timestamp with a year
+    beyond 9999, SecureFX could crash when the folder containing that
+    file was viewed.
+  - Mac/Linux: Every launch of the context menu took longer and
+    used more memory.
+  - Mac/Linux: When drag and drop was used to initiate a transfer,
+    the entire row of the destination folder was not highlighted.
+  - Mac/Linux: The list of hosts in the Global Options dialog in the
+    SSH Host Key category was not sorted.
+  - Mac/Linux: If a session name contained two ampersands, the Window
+    and File menus displayed the session name with three ampersands.
+  - Mac: Filters did not work correctly for the local window if the
+    file system was case sensitive.
+  - Linux: SFXCL crashed if it was run before SecureFX had ever
+    been launched.
